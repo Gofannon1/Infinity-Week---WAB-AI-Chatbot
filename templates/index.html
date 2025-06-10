@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAB AI Assistant - Western Academy of Beijing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐅 WAB AI Assistant</h1>
+            <p>Ask me anything about Western Academy of Beijing</p>
+        </div>
+
+        <div class="chat-container">
+            <form method="POST">
+                <div class="form-group">
+                    <label for="user_input">Your Question:</label>
+                    <input 
+                        type="text" 
+                        id="user_input"
+                        name="user_input" 
+                        class="form-control"
+                        placeholder="e.g., What sports programs does WAB offer?"
+                        required
+                        autocomplete="off"
+                    >
+                </div>
+                <button type="submit" class="btn">Ask WAB AI</button>
+            </form>
+
+            {% if response %}
+                <div class="response-container">
+                    <h3>Response:</h3>
+                    <div class="response-text">{{ response }}</div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="footer">
+            <p>Powered by AI • Western Academy of Beijing</p>
+        </div>
+    </div>
+</body>
+</html>
